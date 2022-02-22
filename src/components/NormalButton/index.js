@@ -6,7 +6,7 @@ import './styles.css';
 const NormalButton = (props) => {
   return (
     <div
-      className={classnames('custom-button', props.isWhite ? '--is-white' : '')}
+      className={classnames('custom-button', props.isWhite ? '--is-white' : '', props.className)}
       onClick={props.onClick}
       aria-hidden="true"
     >
@@ -20,13 +20,15 @@ const NormalButton = (props) => {
 NormalButton.defaultProps = {
   buttonName: '',
   onClick: () => {},
-  isWhite: true,
+  isWhite: false,
+  className: '',
 };
 
 NormalButton.propTypes = {
   buttonName: PropTypes.string,
   onClick: PropTypes.func,
   isWhite: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 export default NormalButton;
