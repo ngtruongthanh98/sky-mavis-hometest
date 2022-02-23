@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import eyeIcon from '../../assets/eye-icon.svg';
 import eyeSlashIcon from '../../assets/eye-slash-icon.svg';
@@ -19,6 +19,12 @@ const TextInput = (props) => {
       setInputType('text');
     }
   };
+
+  useEffect(() => {
+    if (props.isPasswordInput) {
+      setInputType('password');
+    }
+  }, []);
 
   return (
     <div className="custom-text-input">
