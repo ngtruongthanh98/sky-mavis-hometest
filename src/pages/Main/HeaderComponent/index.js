@@ -9,7 +9,7 @@ const HeaderComponent = () => {
       <div className="left-side">
         <img src={CircleIcon} alt="circle-icon" />
 
-        <div className="name">Ronin Wallet</div>
+        <div className="wallet-name">Ronin Wallet</div>
       </div>
 
       <div className="right-side">
