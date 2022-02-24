@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import eyeIcon from '../../assets/eye-icon.svg';
 import eyeSlashIcon from '../../assets/eye-slash-icon.svg';
-import './styles.css';
+import './styles.scss';
 
 const TextInput = (props) => {
   const [inputType, setInputType] = useState('text');

@@ -1,7 +1,7 @@
 import React from 'react';
 import CopyIcon from './assets/copy-icon.svg';
 import RoninWhiteIcon from './assets/ronin-white.svg';
-import './styles.css';
+import './styles.scss';
 
 const WalletTagComponent = () => {
   return (

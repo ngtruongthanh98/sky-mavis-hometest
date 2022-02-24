@@ -3,7 +3,7 @@ import TextInput from '../../components/TextInput';
 import NormalButton from '../../components/NormalButton';
 
 import LogoIcon from '../../assets/ronin-fullcolor.svg';
-import './styles.css';
+import './styles.scss';
 
 const LoginPage = () => {
   const [password, setPassword] = useState('');

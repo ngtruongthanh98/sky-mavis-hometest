@@ -1,7 +1,7 @@
 import React from 'react';
 import HeaderComponent from './HeaderComponent';
 import WalletTagComponent from './WalletTagComponent';
-import './styles.css';
+import './styles.scss';
 
 const MainPage = () => {
   return (

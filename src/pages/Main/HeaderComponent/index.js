@@ -1,7 +1,7 @@
 import React from 'react';
 import CircleIcon from '../../../assets/ellipse-icon.svg';
 import AvatarIcon from './assets/avatar-icon.svg';
-import './styles.css';
+import './styles.scss';
 
 const HeaderComponent = () => {
   return (
