@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import eyeIcon from '../../assets/eye-icon.svg';
 import eyeSlashIcon from '../../assets/eye-slash-icon.svg';
@@ -27,7 +28,7 @@ const TextInput = (props) => {
   }, []);
 
   return (
-    <div className="custom-text-input">
+    <div className={classnames('custom-text-input', props.className)}>
       <div className="title-box">
         <div className="title-left">{props.titleLeft}</div>
         {props.titleRight && <div className="title-right">{props.titleRight}</div>}
@@ -35,12 +36,13 @@ const TextInput = (props) => {
 
       <div className="input-box">
         <input
-          className="custom-input"
+          className={classnames('custom-input', props.isDisabled ? '--disabled' : '')}
           type={inputType}
           value={props.value}
           name={props.name}
           onChange={onChange}
           placeholder={props.placeholder}
+          disabled={props.isDisabled}
         />
 
         {!!props.value && props.isPasswordInput && (
@@ -65,12 +67,14 @@ TextInput.defaultProps = {
   value: undefined,
   name: '',
   onChange: () => {},
-  titleLeft: '123',
+  titleLeft: '',
   titleRight: '',
   isPasswordInput: true,
   rightElement: null,
   leftElement: null,
   placeholder: '',
+  className: '',
+  isDisabled: false,
 };
 
 TextInput.propTypes = {
@@ -83,6 +87,8 @@ TextInput.propTypes = {
   rightElement: PropTypes.element,
   leftElement: PropTypes.element,
   placeholder: PropTypes.string,
+  className: PropTypes.string,
+  isDisabled: PropTypes.bool,
 };
 
 export default TextInput;

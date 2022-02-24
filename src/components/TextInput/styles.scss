@@ -46,6 +46,10 @@
       border-radius: 8px;
       padding: 0 16px;
       color: #151a30;
+
+      &.--disabled {
+        background: #edf1f7;
+      }
     }
 
     .eye-icon,

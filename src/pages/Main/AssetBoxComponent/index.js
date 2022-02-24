@@ -1,5 +1,5 @@
 import React from 'react';
-import UER_COIN from './assets/UER-1.png';
+import EUR_COIN from './assets/EUR-1.png';
 import YEN_COIN from './assets/YEN-1.png';
 import './styles.scss';
 
@@ -9,10 +9,10 @@ const AssetBoxComponent = () => {
       <div className="asset-box-component-title">Assets</div>
       <div className="currency-box-list">
         <div className="currency-box-element">
-          <img className="currency-icon" src={UER_COIN} alt="EUR" />
+          <img className="currency-icon" src={EUR_COIN} alt="EUR" />
 
           <div className="currency-value-box">
-            <div className="foreign-coin">50 UER</div>
+            <div className="foreign-coin">50 EUR</div>
 
             <div className="vnd-coin">1,531,972 VND</div>
           </div>
