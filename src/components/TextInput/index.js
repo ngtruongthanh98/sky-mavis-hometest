@@ -40,6 +40,7 @@ const TextInput = (props) => {
           value={props.value}
           name={props.name}
           onChange={onChange}
+          placeholder={props.placeholder}
         />
 
         {!!props.value && props.isPasswordInput && (
@@ -64,11 +65,12 @@ TextInput.defaultProps = {
   value: undefined,
   name: '',
   onChange: () => {},
-  titleLeft: 'enter password',
-  titleRight: 'available: 50 EUR',
+  titleLeft: '123',
+  titleRight: '',
   isPasswordInput: true,
   rightElement: null,
   leftElement: null,
+  placeholder: '',
 };
 
 TextInput.propTypes = {
@@ -80,6 +82,7 @@ TextInput.propTypes = {
   isPasswordInput: PropTypes.bool,
   rightElement: PropTypes.element,
   leftElement: PropTypes.element,
+  placeholder: PropTypes.string,
 };
 
 export default TextInput;

@@ -24,7 +24,13 @@ const LoginPage = () => {
         <div className="title-1">Ronin Wallet</div>
         <div className="title-2">Your Digital Passport</div>
 
-        <TextInput value={password} name={password} onChange={onChange} />
+        <TextInput
+          value={password}
+          name={password}
+          onChange={onChange}
+          titleLeft="enter password"
+          placeholder="Enter your password"
+        />
 
         <NormalButton className="unlock-btn" buttonName="Unlock" onClick={onClick} />
       </div>

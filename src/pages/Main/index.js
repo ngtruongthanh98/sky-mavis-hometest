@@ -1,6 +1,7 @@
 import React from 'react';
 import HeaderComponent from './HeaderComponent';
 import WalletTagComponent from './WalletTagComponent';
+import ButtonRowComponent from './ButtonRowComponent';
 import './styles.scss';
 
 const MainPage = () => {
@@ -10,6 +11,8 @@ const MainPage = () => {
         <HeaderComponent />
 
         <WalletTagComponent />
+
+        <ButtonRowComponent />
       </div>
     </div>
   );

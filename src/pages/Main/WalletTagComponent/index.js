@@ -12,7 +12,7 @@ const WalletTagComponent = () => {
           <span className="serial-number">(7300 3777 3888 3334)</span>
         </div>
 
-        <img src={CopyIcon} alt="Copy Icon" />
+        <img className="icon-copy" src={CopyIcon} alt="Copy Icon" />
       </div>
 
       <div className="divider-bottom"></div>
