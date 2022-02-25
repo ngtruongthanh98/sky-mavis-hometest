@@ -34,6 +34,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     position: relative;
 
     .custom-input {
@@ -50,6 +51,20 @@
       &.--disabled {
         background: #edf1f7;
       }
+
+      &.--error {
+        border: 1px solid #e85600;
+      }
+    }
+
+    .error-message {
+      font-family: 'SF Pro Text';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 20px;
+      margin-top: 4px;
+      color: #e85600;
     }
 
     .eye-icon,

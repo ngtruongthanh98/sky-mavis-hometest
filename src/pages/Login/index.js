@@ -3,18 +3,31 @@ import TextInput from '../../components/TextInput';
 import NormalButton from '../../components/NormalButton';
 
 import LogoIcon from '../../assets/ronin-fullcolor.svg';
+
+import { useNavigate } from 'react-router-dom';
+
 import './styles.scss';
+
+const passwordStorage = '123456';
 
 const LoginPage = () => {
   const [password, setPassword] = useState('');
+  const [isErrorMessage, setIsErrorMessage] = useState(false);
+
+  const navigate = useNavigate();
 
   const onChange = useCallback((name, value) => {
     setPassword(value);
+    setIsErrorMessage(false);
   }, []);
 
-  const onClick = useCallback(() => {
-    console.log('Helloooooo');
-  }, []);
+  const onClickUnlock = () => {
+    if (password === passwordStorage) {
+      navigate('/main');
+    } else {
+      setIsErrorMessage(true);
+    }
+  };
 
   return (
     <div className="custom-page">
@@ -30,9 +43,11 @@ const LoginPage = () => {
           onChange={onChange}
           titleLeft="enter password"
           placeholder="Enter your password"
+          isError={isErrorMessage}
+          errorMessage={isErrorMessage && password !== passwordStorage ? 'Incorrect password' : ''}
         />
 
-        <NormalButton className="unlock-btn" buttonName="Unlock" onClick={onClick} />
+        <NormalButton className="unlock-btn" buttonName="Unlock" onClick={onClickUnlock} />
       </div>
     </div>
   );

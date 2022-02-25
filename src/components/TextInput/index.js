@@ -25,7 +25,7 @@ const TextInput = (props) => {
     if (props.isPasswordInput) {
       setInputType('password');
     }
-  }, []);
+  }, [props.isPasswordInput]);
 
   return (
     <div className={classnames('custom-text-input', props.className)}>
@@ -36,7 +36,11 @@ const TextInput = (props) => {
 
       <div className="input-box">
         <input
-          className={classnames('custom-input', props.isDisabled ? '--disabled' : '')}
+          className={classnames(
+            'custom-input',
+            props.isDisabled ? '--disabled' : '',
+            props.isError ? '--error' : ''
+          )}
           type={inputType}
           value={props.value}
           name={props.name}
@@ -44,6 +48,8 @@ const TextInput = (props) => {
           placeholder={props.placeholder}
           disabled={props.isDisabled}
         />
+
+        <div className="error-message">{props.errorMessage}</div>
 
         {!!props.value && props.isPasswordInput && (
           <div className="eye-icon" onClick={onClick}>
@@ -75,6 +81,8 @@ TextInput.defaultProps = {
   placeholder: '',
   className: '',
   isDisabled: false,
+  isError: false,
+  errorMessage: '',
 };
 
 TextInput.propTypes = {
@@ -89,6 +97,8 @@ TextInput.propTypes = {
   placeholder: PropTypes.string,
   className: PropTypes.string,
   isDisabled: PropTypes.bool,
+  isError: PropTypes.bool,
+  errorMessage: PropTypes.string,
 };
 
 export default TextInput;
