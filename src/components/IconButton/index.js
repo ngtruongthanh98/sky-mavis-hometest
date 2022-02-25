@@ -12,7 +12,7 @@ const IconButton = (props) => {
         props.className
       )}
     >
-      <div className="icon-button-box">
+      <div className="icon-button-box" onClick={props.onClick} aria-hidden="true">
         <img src={props.source} alt="Icon" />
       </div>
       <div className="icon-button-name">{props.buttonName}</div>

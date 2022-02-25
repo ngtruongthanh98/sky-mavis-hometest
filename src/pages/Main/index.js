@@ -6,6 +6,10 @@ import AssetBoxComponent from './AssetBoxComponent';
 import './styles.scss';
 
 const MainPage = () => {
+  const onClickSend = () => {
+    console.log('Send');
+  };
+
   return (
     <div className="custom-page">
       <div className="main-page">
@@ -13,7 +17,7 @@ const MainPage = () => {
 
         <WalletTagComponent />
 
-        <ButtonRowComponent />
+        <ButtonRowComponent onClickSend={onClickSend} />
 
         <AssetBoxComponent />
       </div>
