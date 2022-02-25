@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import CloseIcon from './assets/close-icon.svg';
 import './styles.scss';
+import classNames from 'classnames';
 const CustomPopup = (props) => {
   const [show, setShow] = useState(false);
 
@@ -22,22 +23,43 @@ const CustomPopup = (props) => {
       }}
       className="overlay"
     >
-      <div className="popup">
-        <div className="header">
-          <div className="title">{props.title}</div>
-          <span className="close-btn" onClick={closeHandler}>
-            <img src={CloseIcon} alt="Close" />
-          </span>
-        </div>
-        <div className="content">{props.children}</div>
+      <div className={classNames('popup', props.customPopupClassName)}>
+        {props.isCustomHeader ? (
+          <div className="custom-header">{props.customHeader}</div>
+        ) : (
+          <div className="header">
+            <div className="title">{props.title}</div>
+            <span className="close-btn" onClick={closeHandler}>
+              <img src={CloseIcon} alt="Close" />
+            </span>
+          </div>
+        )}
+        <div className={classNames('content', props.contentClassName)}>{props.children}</div>
+
+        {props.customFooter && <div className="custom-footer">{props.customFooter}</div>}
       </div>
     </div>
   );
 };
 
+CustomPopup.defaultProps = {
+  isCustomHeader: false,
+  customHeader: null,
+  title: '',
+  contentClassName: '',
+  customFooter: null,
+  customPopupClassName: '',
+};
+
 CustomPopup.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   show: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
+  isCustomHeader: PropTypes.bool,
+  customHeader: PropTypes.element,
+  contentClassName: PropTypes.string,
+  customFooter: PropTypes.element,
+  customPopupClassName: PropTypes.string,
 };
+
 export default CustomPopup;

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import TextInput from '../../../components/TextInput';
 import StackIcon from '../assets/stack-icon.svg';
-import EUR_COIN from '../../Main/AssetBoxComponent/assets/EUR-24.png';
+import USD_COIN from '../../Main/AssetBoxComponent/assets/USD-1.png';
+import EUR_COIN from '../../Main/AssetBoxComponent/assets/EUR-1.png';
+import YEN_COIN from '../../Main/AssetBoxComponent/assets/YEN-1.png';
 import CustomPopup from '../../../components/CustomPopup';
-import AssetBoxComponent from '../../Main/AssetBoxComponent';
 import './styles.scss';
 
 const SendBodyComponent = () => {
@@ -17,13 +18,48 @@ const SendBodyComponent = () => {
     setShowModal(true);
   };
 
+  const renderAssetsModal = () => {
+    return (
+      <div className="asset-box-component">
+        <div className="currency-box-list">
+          <div className="currency-box-element">
+            <img className="currency-icon" src={USD_COIN} alt="USD" />
+
+            <div className="currency-value-box">
+              <div className="foreign-coin">1,000 USD</div>
+
+              <div className="vnd-coin">23,046,000 VND</div>
+            </div>
+          </div>
+
+          <div className="currency-box-element">
+            <img className="currency-icon" src={EUR_COIN} alt="EUR" />
+
+            <div className="currency-value-box">
+              <div className="foreign-coin">50 EUR</div>
+
+              <div className="vnd-coin">1,531,972 VND</div>
+            </div>
+          </div>
+
+          <div className="currency-box-element">
+            <img className="currency-icon" src={YEN_COIN} alt="YEN" />
+
+            <div className="currency-value-box">
+              <div className="foreign-coin">10,000 YEN</div>
+
+              <div className="vnd-coin">2,103,317 VND</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <React.Fragment>
       <CustomPopup onClose={popupCloseHandler} show={showModal} title="Assets">
-        {/* <h1>Hello This is Popup Content Area</h1>
-        <h2>This is my lorem ipsum text here!</h2> */}
-
-        <AssetBoxComponent />
+        {renderAssetsModal()}
       </CustomPopup>
 
       <div className="send-body-component">
