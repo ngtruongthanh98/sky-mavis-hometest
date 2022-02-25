@@ -5,7 +5,13 @@ import './styles.scss';
 
 const IconButton = (props) => {
   return (
-    <div className={classnames('custom-icon-button', props.className)}>
+    <div
+      className={classnames(
+        'custom-icon-button',
+        props.isDisabled ? '--disabled' : '',
+        props.className
+      )}
+    >
       <div className="icon-button-box">
         <img src={props.source} alt="Icon" />
       </div>
