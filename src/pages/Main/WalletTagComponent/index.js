@@ -4,6 +4,10 @@ import RoninWhiteIcon from './assets/ronin-white.svg';
 import './styles.scss';
 
 const WalletTagComponent = () => {
+  const copyToClipboard = (value) => {
+    navigator.clipboard.writeText(value);
+  };
+
   return (
     <div className="wallet-tag-component">
       <div className="wallet-header">
@@ -12,7 +16,13 @@ const WalletTagComponent = () => {
           <span className="serial-number">(7300 3777 3888 3334)</span>
         </div>
 
-        <img className="icon-copy" src={CopyIcon} alt="Copy Icon" />
+        <img
+          className="icon-copy"
+          src={CopyIcon}
+          alt="Copy Icon"
+          onClick={copyToClipboard('7300 3777 3888 3334')}
+          aria-hidden="true"
+        />
       </div>
 
       <div className="divider-bottom"></div>
