@@ -12,7 +12,7 @@ function App() {
           <Route path="login" element={<LoginPage />} />
           <Route path="main" element={<MainPage />} />
           <Route path="send" element={<SendAssetsPage />} />
-          <Route path="*" element={<div>Page not found 404</div>} />
+          <Route path="/" element={<LoginPage />} />
         </Routes>
       </BrowserRouter>
     </div>

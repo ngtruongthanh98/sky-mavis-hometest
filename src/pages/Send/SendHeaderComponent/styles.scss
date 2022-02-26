@@ -9,6 +9,9 @@
   align-items: center;
 
   .back-button {
+    height: 32px;
+    width: 32px;
+
     margin-left: 24px;
     &:hover {
       cursor: pointer;

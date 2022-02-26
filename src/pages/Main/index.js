@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import HeaderComponent from './HeaderComponent';
 import WalletTagComponent from './WalletTagComponent';
 import ButtonRowComponent from './ButtonRowComponent';
@@ -6,8 +7,10 @@ import AssetBoxComponent from './AssetBoxComponent';
 import './styles.scss';
 
 const MainPage = () => {
+  const navigate = useNavigate();
+
   const onClickSend = () => {
-    console.log('Send');
+    navigate('/send');
   };
 
   return (

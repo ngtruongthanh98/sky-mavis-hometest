@@ -43,6 +43,7 @@ const CustomPopup = (props) => {
 };
 
 CustomPopup.defaultProps = {
+  onClose: () => {},
   isCustomHeader: false,
   customHeader: null,
   title: '',
@@ -54,7 +55,7 @@ CustomPopup.defaultProps = {
 CustomPopup.propTypes = {
   title: PropTypes.string,
   show: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func,
   isCustomHeader: PropTypes.bool,
   customHeader: PropTypes.element,
   contentClassName: PropTypes.string,

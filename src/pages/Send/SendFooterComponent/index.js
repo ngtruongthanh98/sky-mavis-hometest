@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import NormalButton from '../../../components/NormalButton';
 import CustomPopup from '../../../components/CustomPopup';
 import './styles.scss';
 
 const SendFooterComponent = () => {
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
   const handleClickSend = () => {
     setShowModal(true);
+  };
+
+  const onClickCancel = () => {
+    navigate('/main');
   };
 
   return (
@@ -27,7 +34,7 @@ const SendFooterComponent = () => {
       </CustomPopup>
 
       <div className="send-footer-component">
-        <NormalButton buttonName="Cancel" isWhite />
+        <NormalButton buttonName="Cancel" isWhite onClick={onClickCancel} />
 
         <NormalButton buttonName="Send" onClick={handleClickSend} />
       </div>
