@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import TextInput from '../../../components/TextInput';
 import StackIcon from '../assets/stack-icon.svg';
 import USD_COIN from '../../Main/AssetBoxComponent/assets/USD-1.png';
 import EUR_COIN from '../../Main/AssetBoxComponent/assets/EUR-1.png';
 import YEN_COIN from '../../Main/AssetBoxComponent/assets/YEN-1.png';
+import { USD_TO_VND_RATE, EUR_TO_VND_RATE, YEN_TO_VND_RATE } from '../../../constants/constants';
+import { formatNumber } from '../../../utils';
 import CustomPopup from '../../../components/CustomPopup';
 import './styles.scss';
 
-const SendBodyComponent = () => {
+const SendBodyComponent = (props) => {
   const [showModal, setShowModal] = useState(false);
 
   const popupCloseHandler = () => {
@@ -26,9 +29,9 @@ const SendBodyComponent = () => {
             <img className="currency-icon" src={USD_COIN} alt="USD" />
 
             <div className="currency-value-box">
-              <div className="foreign-coin">1,000 USD</div>
+              <div className="foreign-coin">{formatNumber(props.USD_value)} USD</div>
 
-              <div className="vnd-coin">23,046,000 VND</div>
+              <div className="vnd-coin">{formatNumber(props.USD_value * USD_TO_VND_RATE)} VND</div>
             </div>
           </div>
 
@@ -36,9 +39,9 @@ const SendBodyComponent = () => {
             <img className="currency-icon" src={EUR_COIN} alt="EUR" />
 
             <div className="currency-value-box">
-              <div className="foreign-coin">50 EUR</div>
+              <div className="foreign-coin">{formatNumber(props.EUR_value)} EUR</div>
 
-              <div className="vnd-coin">1,531,972 VND</div>
+              <div className="vnd-coin">{formatNumber(props.EUR_value * EUR_TO_VND_RATE)} VND</div>
             </div>
           </div>
 
@@ -46,9 +49,9 @@ const SendBodyComponent = () => {
             <img className="currency-icon" src={YEN_COIN} alt="YEN" />
 
             <div className="currency-value-box">
-              <div className="foreign-coin">10,000 YEN</div>
+              <div className="foreign-coin">{formatNumber(props.YEN_value)} YEN</div>
 
-              <div className="vnd-coin">2,103,317 VND</div>
+              <div className="vnd-coin">{formatNumber(props.YEN_value * YEN_TO_VND_RATE)} VND</div>
             </div>
           </div>
         </div>
@@ -100,6 +103,18 @@ const SendBodyComponent = () => {
       </div>
     </React.Fragment>
   );
+};
+
+SendBodyComponent.defaultProps = {
+  USD_value: 1000,
+  EUR_value: 50,
+  YEN_value: 10000,
+};
+
+SendBodyComponent.propTypes = {
+  USD_value: PropTypes.number,
+  EUR_value: PropTypes.number,
+  YEN_value: PropTypes.number,
 };
 
 export default SendBodyComponent;
